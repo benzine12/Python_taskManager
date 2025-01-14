@@ -80,5 +80,5 @@ def main():
         case '8':
             exit()
 
-if __name__ == '__main__':йу
+if __name__ == '__main__':
     main()
