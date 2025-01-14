@@ -17,9 +17,12 @@ def menu():
 
 def write_task():
     task_name = input('Task name: ')
-    task_theme = input('Task theme HOME/WORK: ')
-    if task_theme != 'HOME' or task_theme != 'WORK':
-        task_theme = input('Task theme HOME/WORK: ')
+    while True:
+        task_theme = input('Task theme HOME/WORK : ')
+        if task_theme == 'HOME' or task_theme == 'WORK':
+            break
+        else:
+            print('Wrong answer, enter valid theme.')
     task_status = 'IN_PROGRESS'
     task_desc = input('Description: ')
 
@@ -34,9 +37,24 @@ def write_task():
     return task_base
 
 def new_task(task_base):
-    with open('task_manager.json','a') as file_json:
-        json.dump(task_base, file_json,default=str)
-
+    try:
+        with open('task_manager.json','r+') as file_json:
+            try:
+                # load the data from the file
+                file_json_data = json.load(file_json)
+            # if file empty initialize it with the - []
+            except json.JSONDecodeError:
+                file_json_data = []
+            
+            # add to the current json data new task
+            file_json_data.append(task_base)
+            # move the file pointer to the beginning of the file
+            file_json.seek(0)
+            # write back to the file updated data
+            json.dump(file_json_data, file_json,default=str, indent=4)
+    except FileNotFoundError:
+        with open('task_manager.json', 'w') as file_json:
+            json.dump([task_base], file_json, default=str, indent=4)
 
 def main():
     clearScreen()
@@ -61,5 +79,6 @@ def main():
             pass
         case '8':
             exit()
-if __name__ == '__main__':
+
+if __name__ == '__main__':йу
     main()
