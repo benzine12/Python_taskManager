@@ -1,6 +1,12 @@
 import json
 import os
 import datetime
+import sqlite3
+
+# global variables
+
+con = sqlite3.connect("TasksDB.db")
+cur = con.cursor()
 
 def clearScreen():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -65,7 +71,6 @@ def main():
             case '1':
                 task_base = write_task()
                 new_task(task_base)
-                # clearScreen()
             case '2':
                 pass
             case '3':
