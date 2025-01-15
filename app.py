@@ -2,11 +2,18 @@ import json
 import os
 import datetime
 import sqlite3
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
 
-# global variables
 
-con = sqlite3.connect("TasksDB.db")
-cur = con.cursor()
+# initiate a flask aplication and sqlalchemy database
+app = Flask(__name__)
+CORS(app)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///library.DB'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
+db = SQLAlchemy(app)
+db.init_app(app)
 
 def clearScreen():
     os.system('cls' if os.name == 'nt' else 'clear')
