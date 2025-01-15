@@ -57,28 +57,29 @@ def new_task(task_base):
             json.dump([task_base], file_json, default=str, indent=4)
 
 def main():
-    clearScreen()
-    menu()
-    input_number = input('Enter number: ')
-    match input_number:
-        case '1':
-            task_base = write_task()
-            # print(task_base)
-            new_task(task_base)
-        case '2':
-            pass
-        case '3':
-            pass
-        case '4':
-            pass
-        case '5':
-            pass
-        case '6':
-            pass
-        case '7':
-            pass
-        case '8':
-            exit()
+    while True:
+        clearScreen()
+        menu()
+        input_number = input('Enter number: ')
+        match input_number:
+            case '1':
+                task_base = write_task()
+                new_task(task_base)
+                # clearScreen()
+            case '2':
+                pass
+            case '3':
+                pass
+            case '4':
+                pass
+            case '5':
+                pass
+            case '6':
+                pass
+            case '7':
+                pass
+            case '8':
+                exit()
 
 if __name__ == '__main__':
     main()
