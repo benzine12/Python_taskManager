@@ -1,3 +1,4 @@
+from datetime import datetime, timezone
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from models import Task
@@ -77,13 +78,14 @@ def update_task(id):
     else:
         return jsonify({"message":"Task not found!"}),404
 
-# endpoint update the task
+# endpoint close the task
 @app.route('/close_task/<int:id>',methods=['GET'])
 def close_task(id):
     task = Task.query.get(id)
     if task:
         if task.status == True:
             task.status = False
+            task.end_date = datetime.now(timezone.utc)
             DB.session.commit()
             return jsonify({'message':'Task closed successfully!'})
         else:
