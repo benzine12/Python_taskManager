@@ -1,9 +1,7 @@
 # to-do: 
-1. update task
 2. delete task
-3. change task status
-5. show all IN DONE
-6. show all IN PROGRESS
+5. show all IN DONE (status = False)
+6. show all IN PROGRESS ( status =  True)
 
 
 # done:
@@ -13,3 +11,5 @@
 9. change the all logic of the app to tals to the database and not to the json
 10. use sqlalchemy to talk to he database
 11. create models of the tasks
+3. change task status
+1. update task
