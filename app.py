@@ -1,97 +1,48 @@
 import json
-import os
-import datetime
-import sqlite3
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
+from flask import Flask, jsonify, request
 from flask_cors import CORS
-
+from models import Task
+from db import DB
 
 # initiate a flask aplication and sqlalchemy database
 app = Flask(__name__)
 CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///library.DB'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
-db = SQLAlchemy(app)
-db.init_app(app)
+DB.init_app(app)
 
-def clearScreen():
-    os.system('cls' if os.name == 'nt' else 'clear')
+@app.route('/new_task',methods=['POST'])
+def new_task():
+    data = request.json
+    add_task = Task(
+        task_name = data['task_name'],
+        theme = data['theme'],
+        status = 'In_progress',
+        task_desc = data['task_desc'],
+    )
+    DB.session.add(add_task)
+    DB.session.commit()
+    return jsonify({'message':'task added'}),201
 
-def menu():
-    print('1. add task')
-    print('2. update task')
-    print('3. delete task')
-    print('4. change task status')
-    print('5. show all tasks')
-    print('6. show all DONE')
-    print('7. show all IN PROGRESS')
-    print('8. Exit')
+@app.route('/show_tasks',methods=['GET'])
+def show_tasks():
+    all_tasks = Task.query.all()
+    return jsonify([{
+    'id':task.id,
+    'task_name':task.task_name,
+    'theme':task.theme,
+    'status':task.status,
+    'start_date':task.start_date,
+    'end_date':task.end_date,
+    'task_desc':task.task_desc
+    } for task in all_tasks ])
 
-def write_task():
-    task_name = input('Task name: ')
-    while True:
-        task_theme = input('Task theme HOME/WORK : ')
-        if task_theme == 'HOME' or task_theme == 'WORK':
-            break
-        else:
-            print('Wrong answer, enter valid theme.')
-    task_status = 'IN_PROGRESS'
-    task_desc = input('Description: ')
+@app.route('/',methods=['GET'])
+def main_page():
+    return jsonify({'message':'Flask run'}),200
 
-    task_base = {
-        "task_name":task_name,
-        "theme":task_theme,
-        "status":task_status,
-        "start_date": datetime.datetime.now(),
-        "end_date":'/',
-        "task_desc":task_desc,
-    }
-    return task_base
-
-def new_task(task_base):
-    try:
-        with open('task_manager.json','r+') as file_json:
-            try:
-                # load the data from the file
-                file_json_data = json.load(file_json)
-            # if file empty initialize it with the - []
-            except json.JSONDecodeError:
-                file_json_data = []
-            
-            # add to the current json data new task
-            file_json_data.append(task_base)
-            # move the file pointer to the beginning of the file
-            file_json.seek(0)
-            # write back to the file updated data
-            json.dump(file_json_data, file_json,default=str, indent=4)
-    except FileNotFoundError:
-        with open('task_manager.json', 'w') as file_json:
-            json.dump([task_base], file_json, default=str, indent=4)
-
-def main():
-    while True:
-        clearScreen()
-        menu()
-        input_number = input('Enter number: ')
-        match input_number:
-            case '1':
-                task_base = write_task()
-                new_task(task_base)
-            case '2':
-                pass
-            case '3':
-                pass
-            case '4':
-                pass
-            case '5':
-                pass
-            case '6':
-                pass
-            case '7':
-                pass
-            case '8':
-                exit()
-
+# starting point of the flask server
 if __name__ == '__main__':
-    main()
+    with app.app_context():
+        DB.create_all()
+    app.run(debug=True,port=5001)

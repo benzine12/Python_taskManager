@@ -1,14 +1,14 @@
-from flask_sqlalchemy import SQLAlchemy
+from db import DB
+from datetime import datetime, timezone
 
-db = SQLAlchemy()
-
-class Task(db.Model):
+class Task(DB.Model):
     __tablename__ = 'tasks'
 
-    id = db.Column(db.Integer, primary_key=True)
-    task_name = db.Column(db.String(60), nullable=False)
-    theme = db.Column(db.String(10), nullable=False)
-    status = db.Column(db.String(20), nullable=False)
-    start_date = db.Column(db.DateTime, nullable=False, default=db.func.current_timestamp())
-    end_date = db.Column(db.String(20), nullable=True)
-    task_desc = db.Column(db.Text, nullable=True)
+    id = DB.Column(DB.Integer, primary_key=True)
+    task_name = DB.Column(DB.String(60), nullable=False)
+    theme = DB.Column(DB.String(10), nullable=False)
+    status = DB.Column(DB.String(20), nullable=False)
+    task_desc = DB.Column(DB.Text, nullable=True)
+    start_date = DB.Column(DB.DateTime, nullable=False, default=lambda: datetime.now(timezone.utc))
+    end_date = DB.Column(DB.String(20), nullable=True)
+
