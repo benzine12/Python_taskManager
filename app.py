@@ -10,6 +10,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tasks.DB'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
 DB.init_app(app)
 
+# endpoint add new task
 @app.route('/new_task',methods=['POST'])
 def new_task():
     data = request.json
@@ -22,19 +23,42 @@ def new_task():
     DB.session.commit()
     return jsonify({'message':'task added'}),201
 
-@app.route('/show_tasks',methods=['GET'])
-def show_tasks():
-    all_tasks = Task.query.all()
-    return jsonify([{
-    'id':task.id,
-    'task_name':task.task_name,
-    'theme':task.theme,
-    'status':task.status,
-    'task_desc':task.task_desc,
-    'start_date':task.start_date,
-    'end_date':task.end_date,
-    } for task in all_tasks ])
+# endpoint show 1 task with the id
+@app.route('/tasks/<int:id>',methods=['GET'])
+def show_task(id):
+    task = Task.query.get(id)
+    if task:
+        return jsonify([{
+        'id':task.id,
+        'task_name':task.task_name,
+        'theme':task.theme,
+        'status':task.status,
+        'task_desc':task.task_desc,
+        'start_date':task.start_date,
+        'end_date':task.end_date,
+        }])
+    else:
+        return jsonify({"message":"Task not found!"}),404
 
+# endpoint show all tasks with status
+@app.route('/tasks/<status>', methods=['GET'])
+def show_tasks_status(status):
+    status_bool = status.lower() == 'true'
+    tasks = Task.query.filter_by(status=status_bool).all()
+    if status.lower() in ['true', 'false']:
+        return jsonify([{
+            'id': task.id,
+            'task_name': task.task_name,
+            'theme': task.theme,
+            'status': task.status,
+            'task_desc': task.task_desc,
+            'start_date': task.start_date,
+            'end_date': task.end_date,
+        } for task in tasks])
+    else:
+        return jsonify({"message": "No tasks found with this status!"}),404
+    
+# endpoint update the task
 @app.route('/update_task/<int:id>',methods=['PUT'])
 def update_task(id):
     data = request.json
@@ -47,24 +71,41 @@ def update_task(id):
         if task.status == False and data.get('status') == True:
             task.end_date = None
         elif task.status == True and data.get('status') == False:
-            return jsonify({"message":"ERROR - to first close the task"}),400
-
+            return jsonify({"message":"ERROR - first close the task"}),400
         DB.session.commit()
         return jsonify({"message":"Task updated successfully!"}),200
     else:
         return jsonify({"message":"Task not found!"}),404
-    
 
+# endpoint update the task
+@app.route('/close_task/<int:id>',methods=['GET'])
+def close_task(id):
+    task = Task.query.get(id)
+    if task:
+        if task.status == True:
+            task.status = False
+            DB.session.commit()
+            return jsonify({'message':'Task closed successfully!'})
+        else:
+            return jsonify({'message':'Task already closed!'}),400
+    else:
+        return jsonify({'message':'Task not found!'}),401
 
+# endpoint show all tasks
+@app.route('/tasks',methods=['GET'])
+def show_tasks(): 
+    all_tasks = Task.query.all()
+    return jsonify([{
+    'id':task.id,
+    'task_name':task.task_name,
+    'theme':task.theme,
+    'status':task.status,
+    'task_desc':task.task_desc,
+    'start_date':task.start_date,
+    'end_date':task.end_date,
+    } for task in all_tasks ])
 
-
-
-
-
-
-
-
-
+# test endpoint
 @app.route('/',methods=['GET'])
 def main_page():
     return jsonify({'message':'Flask run'}),200

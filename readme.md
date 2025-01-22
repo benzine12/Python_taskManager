@@ -1,8 +1,5 @@
 # to-do: 
 2. delete task
-5. show all IN DONE (status = False)
-6. show all IN PROGRESS ( status =  True)
-
 
 # done:
 1. add new task
@@ -13,3 +10,6 @@
 11. create models of the tasks
 3. change task status
 1. update task
+5. show all IN DONE (status = False)
+6. show all IN PROGRESS ( status =  True)
+12. close the task
