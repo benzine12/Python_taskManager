@@ -1,5 +1,12 @@
 # to-do: 
-2. delete task
+2. delete task ( add flag is_deleted - default false )
+               # added new Colunm to Taks model - Done
+               # update functions to work with new column
+               
+
+13. implement REST API design for the api - use the same endpoint for each method make the it all with the same fucntion and heck what method user request. 
+
+
 
 # done:
 1. add new task
