@@ -1,8 +1,5 @@
 # to-do: 
-7. delete task ( add flag is_deleted - default false )
-               # added new Colunm to Taks model - Done
-               # update functions to work with new column
-8. add testing for : 
+15. add testing for : 
                 # every endpoint
                 # every 'if else' and return state
 
@@ -17,6 +14,9 @@
 5. show all IN DONE (status = False)
 6. show all IN PROGRESS ( status =  True)
 8. add database (sqlite3 for education purpose)
+7. delete task ( add flag is_deleted - default false )
+               # added new Colunm to Taks model - Done
+               # update functions to work with new column
 9. change the all logic of the app to tals to the database and not to the json
 10. use sqlalchemy to talk to he database
 11. create models of the tasks
