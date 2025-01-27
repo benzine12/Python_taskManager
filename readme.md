@@ -24,8 +24,8 @@ This is a simple Task Management API built with Flask and SQLAlchemy. It allows 
 
 1. Clone the repository:
     ```sh
-    git clone <repository-url>
-    cd <repository-directory>
+    git clone https://github.com/benzine12/Python_taskManager
+    cd Python_taskManager
     ```
 
 2. Create and activate a virtual environment:
