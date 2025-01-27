@@ -38,8 +38,7 @@ def show_task(id):
         'start_date':task.start_date,
         'end_date':task.end_date,
         }])
-    else:
-        return jsonify({"message":"Task not found!"}),404
+    return jsonify({"message":"Task not found!"}),404
 
 # endpoint show all tasks with status
 @app.get('/tasks/<status>')
@@ -56,8 +55,7 @@ def show_tasks_status(status):
             'start_date': task.start_date,
             'end_date': task.end_date,
         } for task in tasks])
-    else:
-        return jsonify({"message": "No tasks found with this status!"}),404
+    return jsonify({"message": "No tasks found with this status!"}),404
     
 # endpoint update the task
 @app.put('/tasks/<int:id>')
@@ -75,8 +73,7 @@ def update_task(id):
             return jsonify({"message":"ERROR - first close the task"}),400
         DB.session.commit()
         return jsonify({"message":"Task updated successfully!"}),200
-    else:
-        return jsonify({"message":"Task not found!"}),404
+    return jsonify({"message":"Task not found!"}),404
 
 # endpoint close the task
 @app.get('/tasks/close/<int:id>')
@@ -88,10 +85,8 @@ def close_task(id):
             task.end_date = datetime.now(timezone.utc)
             DB.session.commit()
             return jsonify({'message':'Task closed successfully!'})
-        else:
-            return jsonify({'message':'Task already closed!'}),400
-    else:
-        return jsonify({'message':'Task not found!'}),401
+        return jsonify({'message':'Task already closed!'}),400
+    return jsonify({'message':'Task not found!'}),401
 
 # endpoint show all tasks
 @app.get('/tasks')
@@ -109,8 +104,20 @@ def show_tasks():
 
 # test endpoint
 @app.get('/')
-def main_page():
-    return jsonify({'message':'Flask run'}),200
+def main_page(): return jsonify({'message':'Flask run'}),200
+
+@app.delete('/tasks/delete/<int:id>')
+def delete_task(id):
+    task = Task.query.get(id)
+    if task:
+        if task.deleted == False:
+            task.deleted = True
+            task.deleted_at = datetime.now(timezone.utc)
+            DB.session.commit()
+            return jsonify({'message':'Task deleted successfully!'}),200
+        return jsonify({"message":"Task alredy deleted!"}),400
+    return jsonify({"message":"There is no such task!"}),401
+
 
 # starting point of the flask server
 if __name__ == '__main__':
