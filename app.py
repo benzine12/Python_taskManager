@@ -12,7 +12,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 DB.init_app(app)
 
 # endpoint add new task
-@app.route('/new_task',methods=['POST'])
+@app.post('/tasks')
 def new_task():
     data = request.json
     add_task = Task(
@@ -25,7 +25,7 @@ def new_task():
     return jsonify({'message':'task added'}),201
 
 # endpoint show 1 task with the id
-@app.route('/tasks/<int:id>',methods=['GET'])
+@app.get('/tasks/<int:id>')
 def show_task(id):
     task = Task.query.get(id)
     if task:
@@ -42,7 +42,7 @@ def show_task(id):
         return jsonify({"message":"Task not found!"}),404
 
 # endpoint show all tasks with status
-@app.route('/tasks/<status>', methods=['GET'])
+@app.get('/tasks/<status>')
 def show_tasks_status(status):
     status_bool = status.lower() == 'true'
     tasks = Task.query.filter_by(status=status_bool).all()
@@ -60,7 +60,7 @@ def show_tasks_status(status):
         return jsonify({"message": "No tasks found with this status!"}),404
     
 # endpoint update the task
-@app.route('/update_task/<int:id>',methods=['PUT'])
+@app.put('/tasks/<int:id>')
 def update_task(id):
     data = request.json
     task = Task.query.get(id)
@@ -79,7 +79,7 @@ def update_task(id):
         return jsonify({"message":"Task not found!"}),404
 
 # endpoint close the task
-@app.route('/close_task/<int:id>',methods=['GET'])
+@app.get('/tasks/close/<int:id>')
 def close_task(id):
     task = Task.query.get(id)
     if task:
@@ -94,7 +94,7 @@ def close_task(id):
         return jsonify({'message':'Task not found!'}),401
 
 # endpoint show all tasks
-@app.route('/tasks',methods=['GET'])
+@app.get('/tasks')
 def show_tasks(): 
     all_tasks = Task.query.all()
     return jsonify([{
@@ -108,7 +108,7 @@ def show_tasks():
     } for task in all_tasks ])
 
 # test endpoint
-@app.route('/',methods=['GET'])
+@app.get('/')
 def main_page():
     return jsonify({'message':'Flask run'}),200
 
