@@ -4,7 +4,7 @@ from flask_cors import CORS
 from models import Task
 from db import DB
 
-# initiate a flask aplication and sqlalchemy database
+# global variables
 app = Flask(__name__)
 CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tasks.DB'

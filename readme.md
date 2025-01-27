@@ -1,26 +1,70 @@
-# to-do: 
-15. add testing for : 
-                # every endpoint
-                # every 'if else' and return state
+# Task Management API
 
+This is a simple Task Management API built with Flask and SQLAlchemy. It allows you to create, update, delete, and view tasks.
 
+## Features
 
+- Add new tasks
+- Update existing tasks
+- Delete tasks (soft delete)
+- View tasks by status
+- Close tasks
+- REST API design
 
-# done:
-1. add new task
-2. update task
-3. change task status
-4. show all tasks
-5. show all IN DONE (status = False)
-6. show all IN PROGRESS ( status =  True)
-8. add database (sqlite3 for education purpose)
-7. delete task ( add flag is_deleted - default false )
-               # added new Colunm to Taks model - Done
-               # update functions to work with new column
-9. change the all logic of the app to tals to the database and not to the json
-10. use sqlalchemy to talk to he database
-11. create models of the tasks
-12. close the task
-13. implement REST API design for the api
-14. add and use serializer to translate the data from the json to sqlalchemy format
+## Requirements
 
+- Python 3.13
+- Flask 3.1.0
+- Flask-Cors 5.0.0
+- Flask-SQLAlchemy 3.1.1
+- SQLAlchemy 2.0.37
+- pytest 8.3.4
+
+## Installation
+
+1. Clone the repository:
+    ```sh
+    git clone <repository-url>
+    cd <repository-directory>
+    ```
+
+2. Create and activate a virtual environment:
+    ```sh
+    python3 -m venv env
+    source env/bin/activate  # On Windows use `env\Scripts\activate`
+    ```
+
+3. Install the dependencies:
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+## Usage
+
+1. Initialize the database:
+    ```sh
+    python app.py
+    ```
+
+2. Run the Flask server:
+    ```sh
+    python app.py
+    ```
+
+3. The API will be available at `http://127.0.0.1:5001/`.
+
+## API Endpoints
+
+- `POST /tasks` - Add a new task
+- `GET /tasks/<int:id>` - View a task by ID
+- `GET /tasks/<status>` - View tasks by status (true/false)
+- `PUT /tasks/<int:id>` - Update a task
+- `GET /tasks/close/<int:id>` - Close a task
+- `GET /tasks` - View all tasks
+- `DELETE /tasks/delete/<int:id>` - Delete a task
+
+## Running Tests
+
+To run the tests, use the following command:
+```sh
+pytest
