@@ -29,15 +29,7 @@ def new_task():
 def show_task(id):
     task = Task.query.get(id)
     if task:
-        return jsonify([{
-        'id':task.id,
-        'task_name':task.task_name,
-        'theme':task.theme,
-        'status':task.status,
-        'task_desc':task.task_desc,
-        'start_date':task.start_date,
-        'end_date':task.end_date,
-        }])
+        return jsonify([task.to_dict()])
     return jsonify({"message":"Task not found!"}),404
 
 # endpoint show all tasks with status
@@ -46,15 +38,7 @@ def show_tasks_status(status):
     status_bool = status.lower() == 'true'
     tasks = Task.query.filter_by(status=status_bool).all()
     if status.lower() in ['true', 'false']:
-        return jsonify([{
-            'id': task.id,
-            'task_name': task.task_name,
-            'theme': task.theme,
-            'status': task.status,
-            'task_desc': task.task_desc,
-            'start_date': task.start_date,
-            'end_date': task.end_date,
-        } for task in tasks])
+        return jsonify([task.to_dict() for task in tasks])
     return jsonify({"message": "No tasks found with this status!"}),404
     
 # endpoint update the task
@@ -92,15 +76,7 @@ def close_task(id):
 @app.get('/tasks')
 def show_tasks(): 
     all_tasks = Task.query.all()
-    return jsonify([{
-    'id':task.id,
-    'task_name':task.task_name,
-    'theme':task.theme,
-    'status':task.status,
-    'task_desc':task.task_desc,
-    'start_date':task.start_date,
-    'end_date':task.end_date,
-    } for task in all_tasks ])
+    return jsonify([ task.to_dict() for task in all_tasks ]),200
 
 # test endpoint
 @app.get('/')
