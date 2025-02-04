@@ -5,7 +5,6 @@ from models import Task,User
 from db import DB
 import logging
 from flask_jwt_extended import JWTManager, create_access_token, get_jwt_identity, jwt_required
-from flask_jwt_extended.exceptions import JWTDecodeError, NoAuthorizationError
 from env.config import Config
 from flask_bcrypt import Bcrypt
 from modules import get_current_user
@@ -85,21 +84,6 @@ def show_task(user, id):
     if task:
         return jsonify(task.to_dict()), 200
     return jsonify({"message": "Task not found!"}), 404
-
-# endpoint show all tasks with status
-@app.get('/tasks/status/<status>')
-@get_current_user
-def show_tasks_status(user, status):
-    # Validate status input
-    if status.lower() not in ['true', 'false']:
-        return jsonify({"error": "Invalid status. Use 'true' or 'false'."}), 400
-
-    # Convert status string to boolean
-    status_bool = status.lower() == 'true'
-    # Query tasks for the authenticated user with the given status
-    tasks = Task.active().filter_by(status=status_bool, user_id=user.id).all()
-
-    return jsonify([task.to_dict() for task in tasks]), 200  # Return empty list if no tasks found
     
 # endpoint update the task
 @app.put('/tasks/<int:id>')
@@ -154,7 +138,7 @@ def close_task(user, id):
 
     return jsonify({'message': 'Task closed successfully!', 'task': task.to_dict()}), 200
 
-
+# endpoint to show all your tasks
 @app.get('/tasks')
 @get_current_user
 def show_tasks(user): 

@@ -1,10 +1,8 @@
 # to-do: 
-15. add testing for : 
+15. add  unitest testing for : 
                 # to-do :
 
                 # done : 
-16. unitest 
-17. autentication
 18. implement the ipdaress checking to teh database and the flask save the endpoint module( from there https://github.com/benzine12/flask_jwt_login_registration/blob/main/models.py)
 
 
@@ -25,7 +23,10 @@
 11. create models of the tasks
 12. close the task
 13. implement REST API design for the api
-
 14. add and use serializer to translate the data from the json to sqlalchemy format
-19. added loger
+
+16. autentication
+17. added loger
+18. configurating file (.env)
+
 

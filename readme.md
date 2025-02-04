@@ -4,6 +4,7 @@ This is a Task Management API built with Flask and SQLAlchemy. It allows you to 
 
 ## Features
 
+- login and registration
 - Add new tasks
 - Update existing tasks
 - Delete tasks (soft delete)
@@ -57,11 +58,10 @@ This is a Task Management API built with Flask and SQLAlchemy. It allows you to 
 
 - `POST /tasks` - Add a new task
 - `GET /tasks/<int:id>` - View a task by ID
-- `GET /tasks/<status>` - View tasks by status (true/false)
 - `PUT /tasks/<int:id>` - Update a task
-- `GET /tasks/close/<int:id>` - Close a task
+- `PUT /tasks/close/<int:id>` - Close a task
 - `GET /tasks` - View all tasks
-- `DELETE /tasks/delete/<int:id>` - Delete a task
+- `DELETE /tasks/delete/<int:id>` - Delete a task(soft delete)
 
 ## Running Tests
 
