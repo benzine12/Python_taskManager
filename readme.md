@@ -55,13 +55,16 @@ This is a Task Management API built with Flask and SQLAlchemy. It allows you to 
 3. The API will be available at `http://127.0.0.1:5001/`.
 
 ## API Endpoints
-
+- `GET /` - Test endpoint to check if Flask run
 - `POST /tasks` - Add a new task
 - `GET /tasks/<int:id>` - View a task by ID
 - `PUT /tasks/<int:id>` - Update a task
 - `PUT /tasks/close/<int:id>` - Close a task
 - `GET /tasks` - View all tasks
 - `DELETE /tasks/delete/<int:id>` - Delete a task(soft delete)
+- `POST /register` - Register new user
+- `POST /login` - Login and Get JWT 
+
 
 ## Running Tests
 

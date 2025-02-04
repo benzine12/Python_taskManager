@@ -165,7 +165,7 @@ def delete_task(user, id):
 @app.get('/')
 def main_page(): return jsonify({'message':'Flask run'}),200
 
-@app.route('/register', methods=['POST'])
+@app.post('/register')
 # @func_logger
 def register():
     '''Register func
@@ -203,7 +203,7 @@ def register():
         return jsonify({"msg": "User registered successfully"}), 201
 
 #login func
-@app.route('/login', methods=['POST'])
+@app.post('/login')
 # @func_logger
 def login():
     if request.method == 'POST':
@@ -229,14 +229,6 @@ def login():
         return jsonify({"msg": "Invalid username or password",
                         "error": "Something went wrong"}), 401
     
-@app.route('/protected', methods=['GET'])
-# @func_logger
-@jwt_required()
-def protected():
-    # Access the identity of the current user
-    current_user = get_jwt_identity()
-    return jsonify({"msg": f"Hello, {current_user}! This is a protected area."}), 200
-
 # starting point of the flask server
 if __name__ == '__main__':
     with app.app_context():
