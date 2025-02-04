@@ -34,9 +34,8 @@ class Task(DB.Model):
         """Translate the SQL to dict ."""
         return {column.name: getattr(self, column.name) for column in self.__table__.columns}
 
-    def from_dict(self,data):
-        """Translate the dict to SQL."""
-        for field in data:
-            if hasattr(self, field):  # Only set attributes that exist on the model
-                setattr(self, field, data[field])
+    @classmethod
+    def active(cls):
+        """Return only not deleted tasks for querying."""
+        return cls.query.filter_by(deleted=False)
 
