@@ -4,6 +4,11 @@
 
                 # done : 
 18. implement the ipdaress checking to teh database and the flask save the endpoint module( from there https://github.com/benzine12/flask_jwt_login_registration/blob/main/models.py)
+19. change the database to mySQL( use docker)
+20. create docker compose with : 
+                            # Backend
+                            # Frontend
+                            # mySQl
 
 
 
@@ -30,3 +35,6 @@
 18. configurating file (.env)
 
 
+# Ask NAti : 
+1. are big companyes use redux with they react projects? 
+2. 

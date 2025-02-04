@@ -1,6 +1,6 @@
 # Task Management API
 
-This is a Task Management API built with Flask and SQLAlchemy. It allows you to create, update, delete, and view tasks.
+This project is a Task Management Application using Flask for backend and React for Frontend. It allows you to create, update, delete, and view tasks.
 
 ## Features
 
