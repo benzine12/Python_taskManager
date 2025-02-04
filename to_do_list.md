@@ -8,8 +8,7 @@
 20. create docker compose with : 
                             # Backend
                             # Frontend
-                            # mySQl
-
+                            # mySQL
 
 
 # done:
