@@ -38,3 +38,4 @@
 # Ask NAti : 
 1. are big companyes use redux with they react projects? 
 2. what is the way that he using git in his project  - how often make docker push and what is real usage of git branch and tags
+3. is pople look at github activity chart? 
