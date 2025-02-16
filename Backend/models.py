@@ -8,6 +8,8 @@ class IPAddres(DB.Model):
     added_at = DB.Column(DB.DateTime, default=lambda: datetime.now(timezone.utc))
 
 class User(DB.Model):
+    __tablename__ = 'users'
+
     id = DB.Column(DB.Integer, primary_key=True)
     username = DB.Column(DB.String(15), nullable=False, unique=True)
     password = DB.Column(DB.String(15), nullable=False)
@@ -20,7 +22,8 @@ class Task(DB.Model):
     __tablename__ = 'tasks'
 
     id = DB.Column(DB.Integer, primary_key=True) # task id ( autoincrement)
-    user_id = DB.Column(DB.Integer, DB.ForeignKey('user.id'), nullable=False) # the user id who creates the task
+    user_id = DB.Column(DB.Integer, DB.ForeignKey('users.id'), nullable=False) # the user id who creates the task
+    
     task_name = DB.Column(DB.String(60), nullable=False) # the name of the task
     theme = DB.Column(DB.String(10), nullable=False) # the theme of the new task( work,home,school)
     status = DB.Column(DB.Boolean, default=True) # status of the task ( active or not)

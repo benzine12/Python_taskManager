@@ -9,8 +9,6 @@ from env.config import Config
 from flask_bcrypt import Bcrypt
 from modules import get_current_user
 
-# global variables
-
 # Configure the root logger
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
@@ -42,9 +40,6 @@ jwt = JWTManager(app)
 DB.init_app(app)
 bcrypt = Bcrypt(app)
 
-# endpoint add new task
-from flask import request, jsonify
-
 @app.post('/tasks')
 @get_current_user
 def new_task(user):
@@ -67,8 +62,7 @@ def new_task(user):
         user_id=user.id,
         task_name=data["task_name"],
         theme=data["theme"],
-        task_desc=data.get("task_desc")
-    )
+        task_desc=data.get("task_desc"),)
 
     # Save to database
     DB.session.add(add_task)
@@ -163,7 +157,8 @@ def delete_task(user, id):
 
 # test endpoint
 @app.get('/')
-def main_page(): return jsonify({'message':'Flask run'}),200
+def main_page():
+    return jsonify({'message':'Flask run'}),200
 
 @app.post('/register')
 # @func_logger
@@ -190,7 +185,7 @@ def register():
             return jsonify({"msg": "Username and password are required",
                             "error": "Bad request"}), 400
 
-        if User.active().filter_by(username=username).first():
+        if User.query.filter_by(username=username).first():
             return jsonify({"msg": "Username already exists",
                             "error": "Something went wrong"}), 409
 
@@ -218,7 +213,7 @@ def login():
             return jsonify({"msg": "Username and password are required",
                             "error": "Bad request"}), 400
 
-        user = User.active().filter_by(username=username).first()
+        user = User.query.filter_by(username=username).first()
 
         if user and bcrypt.check_password_hash(user.password, password):
             access_token = create_access_token(identity=str(user.id))

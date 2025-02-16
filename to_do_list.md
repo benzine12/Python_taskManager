@@ -3,12 +3,13 @@
                 # to-do :
 
                 # done : 
-18. implement the ipdaress checking to teh database and the flask save the endpoint module( from there https://github.com/benzine12/flask_jwt_login_registration/blob/main/models.py)
+18. implement the ipdaress checking to the database and the flask save the endpoint module( from there https://github.com/benzine12/flask_jwt_login_registration/blob/main/models.py)
 19. change the database to mySQL( use docker)
 20. create docker compose with : 
                             # Backend
                             # Frontend
                             # mySQL
+21. change auth decorators to middleware
 
 
 # done:
@@ -32,9 +33,3 @@
 16. autentication
 17. added loger
 18. configurating file (.env)
-
-
-# Ask NAti : 
-1. are big companyes use redux with they react projects? 
-2. what is the way that he using git in his project  - how often make docker push and what is real usage of git branch and tags
-3. is pople look at github activity chart? 
