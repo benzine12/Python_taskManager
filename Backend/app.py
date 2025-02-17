@@ -173,16 +173,16 @@ def register():
         username = request.json.get('username', None)
         password = request.json.get('password', None)
 
+        if not username or not password:
+            return jsonify({"msg": "Username and password are required",
+                            "error": "Bad request"}), 400
+
         if len(password) <= 10:
             return jsonify({"msg": "Password shoud be longer then 10 characters",
                             "error": "Bad request"}), 400
 
         if len(username) <= 4:
             return jsonify({"msg": "Username shoud be longer then 4 characters",
-                            "error": "Bad request"}), 400
- 
-        if not username or not password:
-            return jsonify({"msg": "Username and password are required",
                             "error": "Bad request"}), 400
 
         if User.query.filter_by(username=username).first():
