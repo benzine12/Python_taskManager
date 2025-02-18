@@ -1,5 +1,5 @@
 # test_register.py
-from app import bcrypt,DB,User
+from app import bcrypt
 import pytest
 
 # test for good case
