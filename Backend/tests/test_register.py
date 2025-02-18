@@ -8,6 +8,10 @@ def test_register(client):  # `client` is passed as an argument
     assert response.status_code == 201  # Check if status code is 200
     assert response.json == {"msg": "User registered successfully"}  # Check if response is correct
 
+def test_wrong_request(client):  # `client` is passed as an argument
+    response = client.get('/register')  # Simulates GET request to /register
+    assert response.status_code == 405  # Check if status code is 405
+
 # # test for bad case
 # 1. test for missing or invalid JSON in request
 def test_register_no_data(client):  # `client` is passed as an argument
@@ -49,3 +53,9 @@ def test_hash_is_different():
     hashed_password = bcrypt.generate_password_hash(password).decode("utf-8")
     assert password != hashed_password  # Ensures plaintext is not stored
 
+# Areas for Improvement:
+
+# Username Already Exists: There's no test for the case where a username already exists (status code 409). You should add this test.
+# Test for Good Case: Your test_register has a password that's shorter than 10 characters ("test_password"), but your validation requires passwords longer than 10 characters. This test will fail as written.
+# Assertions: Some assertions have incorrect comments (e.g., checking for status code 400 but comment says 405).
+# Database Interaction: You're not testing if the user is actually saved to the database. Consider adding a test that queries the database after registration.
