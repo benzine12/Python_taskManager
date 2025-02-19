@@ -4,7 +4,7 @@ from flask_cors import CORS
 from models import Task,User
 from db import DB
 import logging
-from flask_jwt_extended import JWTManager, create_access_token, get_jwt_identity, jwt_required
+from flask_jwt_extended import JWTManager, create_access_token
 from env.config import Config
 from flask_bcrypt import Bcrypt
 from modules import get_current_user

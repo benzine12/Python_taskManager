@@ -1,6 +1,10 @@
-# # test_login.py
+# test_login.py
+from flask_jwt_extended import create_access_token
 
-# from app import bcrypt
-# import pytest
+def test_login(client):
+    response = client.post('/register', # Simulates POST request to /register
+    json={"username":"test_username","password":"test_password"})
 
-# def
+    assert response.status_code == 201  # Check if status code is 201
+    # assert response.json == {"msg": "Welcome back, commander!",
+    #                     "access_token": create_access_token(identity=str(user.id))}
