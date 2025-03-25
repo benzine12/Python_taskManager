@@ -16,3 +16,14 @@ def client():
     
     with app.app_context():
         DB.drop_all()
+
+@pytest.fixture
+def test_user(client, username: str = "test_username",password: str = "test_password"):
+    """Create test user in database to test the different functions"""
+    response = client.post('/register', # Simulates POST request to /register
+                           json={"username":username,"password":password})
+    
+    assert response.status_code == 201
+    assert response.json == {"msg": "User registered successfully"}
+
+    return {"username":username,"password":password}
