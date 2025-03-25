@@ -42,12 +42,7 @@ This project is a Task Management Application using Flask for backend and React 
 
 ## Usage
 
-1. Initialize the database:
-    ```sh
-    python app.py
-    ```
-
-2. Run the Flask server:
+1. Run the Flask server:
     ```sh
     python app.py
     ```
