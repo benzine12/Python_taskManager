@@ -27,3 +27,13 @@ def test_user(client, username: str = "test_username",password: str = "test_pass
     assert response.json == {"msg": "User registered successfully"}
 
     return {"username":username,"password":password}
+
+@pytest.fixture
+def jwt_header(client,test_user):
+    response = client.post('/login',
+                          json={"username": test_user["username"], 
+                                "password": test_user["password"]})
+    
+    token = response.json["access_token"]
+    headers = {"Authorization": f"Bearer {token}"}
+    return headers
