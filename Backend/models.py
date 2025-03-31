@@ -34,7 +34,7 @@ class Task(DB.Model):
     deleted_at = DB.Column(DB.DateTime, nullable=True) # date if deleting the task
 
     def to_dict(self):
-        """Translate the SQL to dict ."""
+        """Translate the SQL to dict . Simple serializer! """
         return {column.name: getattr(self, column.name) for column in self.__table__.columns}
 
     @classmethod

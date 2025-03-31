@@ -37,3 +37,16 @@ def jwt_header(client,test_user):
     token = response.json["access_token"]
     headers = {"Authorization": f"Bearer {token}"}
     return headers
+
+@pytest.fixture
+def test_task(client,jwt_header):
+    response = client.post('/tasks',headers=jwt_header,json={
+        "task_name":"test_task",
+        "theme":"test_theme",
+        "task_desc":"test_desc"
+    })
+    return {
+        "task_name":"test_task",
+        "theme":"test_theme",
+        "task_desc":"test_desc"
+    }
