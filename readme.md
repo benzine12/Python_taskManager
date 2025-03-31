@@ -65,4 +65,6 @@ This project is a Task Management Application using Flask for backend and React 
 
 To run the tests, use the following command:
 ```sh
-pytest
+coverage run -m pytest
+coverage report -m    
+```

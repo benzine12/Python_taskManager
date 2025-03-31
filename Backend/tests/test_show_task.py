@@ -26,3 +26,4 @@ def test_wrong_user(client, jwt_header):
 
     assert response.status_code == 404
     assert response.json == {"message": "Task not found!"}
+
