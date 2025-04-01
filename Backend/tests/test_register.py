@@ -43,6 +43,7 @@ def test_register_username_len(client):  # `client` is passed as an argument
 ])
 def test_register_missing_parameter(client, payload):
     """Test registration fails when username or password is missing."""
+    
     response = client.post('/register', json=payload)
 
     assert response.status_code == 400  # Check for Bad Request
