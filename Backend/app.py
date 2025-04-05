@@ -1,13 +1,15 @@
 from datetime import datetime, timezone
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-from models import Task,User
+from models import Task, User
 from db import DB
 import logging
 from flask_jwt_extended import JWTManager, create_access_token
 from env.config import Config
 from flask_bcrypt import Bcrypt
 from modules import get_current_user
+import redis
+import json
 
 # Configure the root logger
 logger = logging.getLogger()
@@ -45,6 +47,14 @@ with app.app_context():
     DB.create_all()
     logger.info("Database tables initialized successfully!")
 
+# Initialize Redis connection
+redis_client = redis.Redis(
+    host=Config.REDIS_HOST,
+    port=Config.REDIS_PORT,
+    db=Config.REDIS_DB,
+    decode_responses=True  # decode to string
+)
+
 @app.post('/tasks')
 @get_current_user
 def new_task(user):
@@ -67,7 +77,8 @@ def new_task(user):
         user_id=user.id,
         task_name=data["task_name"],
         theme=data["theme"],
-        task_desc=data.get("task_desc"),)
+        task_desc=data.get("task_desc"),
+    )
 
     # Save to database
     DB.session.add(add_task)
@@ -78,24 +89,35 @@ def new_task(user):
         logger.error(f"Database error: {str(e)}")
         return jsonify({"error": "Database error occurred"}), 500
 
+    redis_client.delete(f"user:{user.id}:tasks")
     return jsonify({"message": "Task added successfully", "task": add_task.to_dict()}), 201
 
 # endpoint show 1 task with the id
 @app.get('/tasks/<int:id>')
 @get_current_user
 def show_task(user, id):
+    cache_key = f"user:{user.id}:task:{id}"
+
+    cached_task = redis_client.get(cache_key)
+    if cached_task:  # Check if the task is cached in Redis
+        logger.info(f"Task {id} for user {user.id} loaded from Redis cache.")
+        return jsonify(json.loads(cached_task)), 200
+
     task = Task.active().filter_by(id=id, user_id=user.id).first()
     if task:
+        task_dict = task.to_dict()
+        redis_client.setex(cache_key, 60, json.dumps(task_dict))
         return jsonify(task.to_dict()), 200
+
     return jsonify({"message": "Task not found!"}), 404
-    
+
 # endpoint update the task
 @app.put('/tasks/<int:id>')
 @get_current_user
 def update_task(user, id):
     data = request.json
     task = Task.active().filter_by(id=id, user_id=user.id).first()
-    
+
     if task:
         allowed_fields = {"task_name", "theme", "task_desc", "status"}
         unexpected_fields = set(data.keys()) - allowed_fields
@@ -120,13 +142,19 @@ def update_task(user, id):
         task.theme = data.get("theme", task.theme)
         task.task_desc = data.get("task_desc", task.task_desc)
         task.status = status
-        
+
+        # Invalidate Redis cache for this task
+        cache_key = f"user:{user.id}:task:{id}"
+        redis_client.delete(cache_key)
+
         try:
             DB.session.commit()
         except Exception as e:
             DB.session.rollback()
             logger.error(f"Database error: {str(e)}")
             return jsonify({"error": "Database error occurred"}), 500
+
+        redis_client.delete(f"user:{user.id}:tasks")
         return jsonify({"message": "Task updated successfully!", "task": task.to_dict()}), 200
     return jsonify({"message": "Task not found!"}), 404
 
@@ -143,6 +171,11 @@ def close_task(user, id):
 
     task.status = False
     task.end_date = datetime.now(timezone.utc)
+
+    # Invalidate Redis cache for this task
+    cache_key = f"user:{user.id}:task:{id}"
+    redis_client.delete(cache_key)
+
     try:
         DB.session.commit()
     except Exception as e:
@@ -150,14 +183,22 @@ def close_task(user, id):
         logger.error(f"Database error: {str(e)}")
         return jsonify({"error": "Database error occurred"}), 500
 
+    redis_client.delete(f"user:{user.id}:tasks")
     return jsonify({'message': 'Task closed successfully!', 'task': task.to_dict()}), 200
 
 # endpoint to show all your tasks
 @app.get('/tasks')
 @get_current_user
-def show_tasks(user): 
+def show_tasks(user):
+    cache_key = f"user:{user.id}:tasks"
+    cached_tasks = redis_client.get(cache_key)
+    if cached_tasks:
+        return jsonify(json.loads(cached_tasks)), 200
+
     user_tasks = Task.active().filter_by(user_id=user.id).all()
-    return jsonify([task.to_dict() for task in user_tasks]), 200
+    tasks_list = [task.to_dict() for task in user_tasks]
+    redis_client.setex(cache_key, 60, json.dumps(tasks_list))
+    return jsonify(tasks_list), 200
 
 @app.delete('/tasks/<int:id>')
 @get_current_user
@@ -178,12 +219,13 @@ def delete_task(user, id):
         logger.error(f"Database error: {str(e)}")
         return jsonify({"error": "Database error occurred"}), 500
 
+    redis_client.delete(f"user:{user.id}:tasks")
     return jsonify({"message": "Task deleted successfully!", "task": task.to_dict()}), 200
 
 # test endpoint
 @app.get('/')
 def main_page():
-    return jsonify({'message':'Flask run'}),200
+    return jsonify({'message': 'Flask run'}), 200
 
 @app.post('/register')
 # @func_logger
@@ -227,7 +269,7 @@ def register():
 
         return jsonify({"msg": "User registered successfully"}), 201
 
-#login func
+# login func
 @app.post('/login')
 # @func_logger
 def login():
@@ -249,13 +291,13 @@ def login():
             access_token = create_access_token(identity=str(user.id))
             # refresh_token = create_refresh_token(identity=username)
             return jsonify({"msg": "Welcome back, commander!",
-                        "access_token": access_token}), 200
+                            "access_token": access_token}), 200
 
         return jsonify({"msg": "Invalid username or password",
                         "error": "Something went wrong"}), 401
-    
+
 # starting point of the flask server
 if __name__ == '__main__':
     with app.app_context():
         DB.create_all()
-    app.run(debug=True,port=5001)
+    app.run(debug=True, port=5001)

@@ -16,3 +16,185 @@
 2025-04-05 08:37:44,352 - root - INFO - Database tables initialized successfully!
 2025-04-05 08:37:44,372 - werkzeug - WARNING -  * Debugger is active!
 2025-04-05 08:37:44,378 - werkzeug - INFO -  * Debugger PIN: 851-415-096
+2025-04-05 14:07:44,778 - root - INFO - Database tables initialized successfully!
+2025-04-05 14:07:44,895 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2025-04-05 14:07:44,895 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-05 14:07:44,896 - werkzeug - INFO -  * Restarting with stat
+2025-04-05 14:07:45,110 - root - INFO - Database tables initialized successfully!
+2025-04-05 14:07:45,126 - werkzeug - WARNING -  * Debugger is active!
+2025-04-05 14:07:45,134 - werkzeug - INFO -  * Debugger PIN: 851-415-096
+2025-04-05 14:08:06,946 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:08:06] "GET / HTTP/1.1" 200 -
+2025-04-05 14:08:29,077 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:08:29] "[31m[1mPOST /register HTTP/1.1[0m" 400 -
+2025-04-05 14:08:49,593 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:08:49] "[31m[1mPOST /register HTTP/1.1[0m" 400 -
+2025-04-05 14:08:59,691 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:08:59] "[35m[1mPOST /register HTTP/1.1[0m" 201 -
+2025-04-05 14:09:04,190 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:09:04] "POST /login HTTP/1.1" 200 -
+2025-04-05 14:09:33,599 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:09:33] "[31m[1mPOST /tasks HTTP/1.1[0m" 400 -
+2025-04-05 14:10:30,731 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:10:30] "[35m[1mPOST /tasks HTTP/1.1[0m" 500 -
+2025-04-05 14:10:30,786 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:10:30] "GET /tasks?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-04-05 14:10:30,786 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:10:30] "GET /tasks?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-04-05 14:10:30,796 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:10:30] "GET /tasks?__debugger__=yes&cmd=resource&f=console.png&s=UPSKcrq2p4mQh74gUDJS HTTP/1.1" 200 -
+2025-04-05 14:11:53,959 - root - INFO - Database tables initialized successfully!
+2025-04-05 14:11:53,984 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2025-04-05 14:11:53,984 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-05 14:11:53,985 - werkzeug - INFO -  * Restarting with stat
+2025-04-05 14:11:54,177 - root - INFO - Database tables initialized successfully!
+2025-04-05 14:11:54,192 - werkzeug - WARNING -  * Debugger is active!
+2025-04-05 14:11:54,197 - werkzeug - INFO -  * Debugger PIN: 851-415-096
+2025-04-05 14:11:58,478 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:11:58] "[35m[1mPOST /tasks HTTP/1.1[0m" 201 -
+2025-04-05 14:12:07,668 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:12:07] "[35m[1mGET /tasks HTTP/1.1[0m" 500 -
+2025-04-05 14:12:07,689 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:12:07] "[36mGET /tasks?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-04-05 14:12:07,690 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:12:07] "[36mGET /tasks?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-04-05 14:12:07,695 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:12:07] "GET /tasks?__debugger__=yes&cmd=resource&f=console.png&s=ib5zpyv4VNA7ZunMqh3R HTTP/1.1" 200 -
+2025-04-05 14:12:12,494 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:12:12] "[35m[1mGET /tasks HTTP/1.1[0m" 500 -
+2025-04-05 14:12:12,512 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:12:12] "[36mGET /tasks?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-04-05 14:12:12,512 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:12:12] "[36mGET /tasks?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-04-05 14:12:12,519 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:12:12] "[36mGET /tasks?__debugger__=yes&cmd=resource&f=console.png&s=ib5zpyv4VNA7ZunMqh3R HTTP/1.1[0m" 304 -
+2025-04-05 14:12:21,994 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:12:21] "[35m[1mGET /tasks/1 HTTP/1.1[0m" 500 -
+2025-04-05 14:12:22,015 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:12:22] "[36mGET /tasks/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-04-05 14:12:22,016 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:12:22] "[36mGET /tasks/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-04-05 14:12:22,022 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:12:22] "GET /tasks/1?__debugger__=yes&cmd=resource&f=console.png&s=ib5zpyv4VNA7ZunMqh3R HTTP/1.1" 200 -
+2025-04-05 14:16:31,323 - werkzeug - INFO -  * Detected change in '/Users/didi/Desktop/Python Projects/Python_taskManager/Backend/models.py', reloading
+2025-04-05 14:16:31,414 - werkzeug - INFO -  * Restarting with stat
+2025-04-05 14:16:31,685 - root - INFO - Database tables initialized successfully!
+2025-04-05 14:16:31,704 - werkzeug - WARNING -  * Debugger is active!
+2025-04-05 14:16:31,710 - werkzeug - INFO -  * Debugger PIN: 851-415-096
+2025-04-05 14:16:38,597 - root - INFO - Database tables initialized successfully!
+2025-04-05 14:16:38,616 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2025-04-05 14:16:38,616 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-05 14:16:38,616 - werkzeug - INFO -  * Restarting with stat
+2025-04-05 14:16:38,836 - root - INFO - Database tables initialized successfully!
+2025-04-05 14:16:38,855 - werkzeug - WARNING -  * Debugger is active!
+2025-04-05 14:16:38,863 - werkzeug - INFO -  * Debugger PIN: 851-415-096
+2025-04-05 14:16:40,883 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:16:40] "[35m[1mGET /tasks/1 HTTP/1.1[0m" 500 -
+2025-04-05 14:16:40,926 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:16:40] "[36mGET /tasks/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-04-05 14:16:40,927 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:16:40] "[36mGET /tasks/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-04-05 14:16:40,938 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:16:40] "GET /tasks/1?__debugger__=yes&cmd=resource&f=console.png&s=284hhsy24YLUdrMDvB8e HTTP/1.1" 200 -
+2025-04-05 14:16:53,968 - werkzeug - INFO -  * Detected change in '/Users/didi/Desktop/Python Projects/Python_taskManager/Backend/models.py', reloading
+2025-04-05 14:16:54,040 - werkzeug - INFO -  * Restarting with stat
+2025-04-05 14:16:54,261 - root - INFO - Database tables initialized successfully!
+2025-04-05 14:16:54,275 - werkzeug - WARNING -  * Debugger is active!
+2025-04-05 14:16:54,280 - werkzeug - INFO -  * Debugger PIN: 851-415-096
+2025-04-05 14:16:55,295 - werkzeug - INFO -  * Detected change in '/Users/didi/Desktop/Python Projects/Python_taskManager/Backend/models.py', reloading
+2025-04-05 14:16:55,373 - werkzeug - INFO -  * Restarting with stat
+2025-04-05 14:16:55,583 - root - INFO - Database tables initialized successfully!
+2025-04-05 14:16:55,598 - werkzeug - WARNING -  * Debugger is active!
+2025-04-05 14:16:55,602 - werkzeug - INFO -  * Debugger PIN: 851-415-096
+2025-04-05 14:16:58,402 - root - INFO - Database tables initialized successfully!
+2025-04-05 14:16:58,419 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2025-04-05 14:16:58,419 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-05 14:16:58,420 - werkzeug - INFO -  * Restarting with stat
+2025-04-05 14:16:58,635 - root - INFO - Database tables initialized successfully!
+2025-04-05 14:16:58,652 - werkzeug - WARNING -  * Debugger is active!
+2025-04-05 14:16:58,656 - werkzeug - INFO -  * Debugger PIN: 851-415-096
+2025-04-05 14:17:01,347 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:17:01] "[35m[1mGET /tasks/1 HTTP/1.1[0m" 500 -
+2025-04-05 14:17:01,366 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:17:01] "[36mGET /tasks/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-04-05 14:17:01,366 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:17:01] "[36mGET /tasks/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-04-05 14:17:01,370 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:17:01] "GET /tasks/1?__debugger__=yes&cmd=resource&f=console.png&s=H9rjTXRRsfHBJE7zLaD3 HTTP/1.1" 200 -
+2025-04-05 14:17:05,722 - werkzeug - INFO -  * Detected change in '/Users/didi/Desktop/Python Projects/Python_taskManager/Backend/models.py', reloading
+2025-04-05 14:17:05,807 - werkzeug - INFO -  * Restarting with stat
+2025-04-05 14:17:06,016 - root - INFO - Database tables initialized successfully!
+2025-04-05 14:17:06,033 - werkzeug - WARNING -  * Debugger is active!
+2025-04-05 14:17:06,037 - werkzeug - INFO -  * Debugger PIN: 851-415-096
+2025-04-05 14:17:15,408 - root - INFO - Database tables initialized successfully!
+2025-04-05 14:17:15,427 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2025-04-05 14:17:15,427 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-05 14:17:15,427 - werkzeug - INFO -  * Restarting with stat
+2025-04-05 14:17:15,615 - root - INFO - Database tables initialized successfully!
+2025-04-05 14:17:15,632 - werkzeug - WARNING -  * Debugger is active!
+2025-04-05 14:17:15,636 - werkzeug - INFO -  * Debugger PIN: 851-415-096
+2025-04-05 14:17:18,962 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:17:18] "[35m[1mGET /tasks/1 HTTP/1.1[0m" 500 -
+2025-04-05 14:17:18,981 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:17:18] "[36mGET /tasks/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-04-05 14:17:18,982 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:17:18] "[36mGET /tasks/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-04-05 14:17:18,985 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:17:18] "GET /tasks/1?__debugger__=yes&cmd=resource&f=console.png&s=2UZnyWSr7wGgW0GBxwOo HTTP/1.1" 200 -
+2025-04-05 14:19:14,390 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:19:14] "[35m[1mGET /tasks/1 HTTP/1.1[0m" 500 -
+2025-04-05 14:19:14,406 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:19:14] "[36mGET /tasks/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-04-05 14:19:14,406 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:19:14] "[36mGET /tasks/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-04-05 14:19:14,409 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:19:14] "[36mGET /tasks/1?__debugger__=yes&cmd=resource&f=console.png&s=2UZnyWSr7wGgW0GBxwOo HTTP/1.1[0m" 304 -
+2025-04-05 14:19:30,663 - werkzeug - INFO -  * Detected change in '/Users/didi/Desktop/Python Projects/Python_taskManager/Backend/models.py', reloading
+2025-04-05 14:19:30,769 - werkzeug - INFO -  * Restarting with stat
+2025-04-05 14:19:31,046 - root - INFO - Database tables initialized successfully!
+2025-04-05 14:19:31,066 - werkzeug - WARNING -  * Debugger is active!
+2025-04-05 14:19:31,072 - werkzeug - INFO -  * Debugger PIN: 851-415-096
+2025-04-05 14:19:37,127 - werkzeug - INFO -  * Detected change in '/Users/didi/Desktop/Python Projects/Python_taskManager/Backend/models.py', reloading
+2025-04-05 14:19:37,239 - werkzeug - INFO -  * Restarting with stat
+2025-04-05 14:19:37,435 - root - INFO - Database tables initialized successfully!
+2025-04-05 14:19:37,452 - werkzeug - WARNING -  * Debugger is active!
+2025-04-05 14:19:37,457 - werkzeug - INFO -  * Debugger PIN: 851-415-096
+2025-04-05 14:19:39,471 - werkzeug - INFO -  * Detected change in '/Users/didi/Desktop/Python Projects/Python_taskManager/Backend/models.py', reloading
+2025-04-05 14:19:39,540 - werkzeug - INFO -  * Restarting with stat
+2025-04-05 14:19:39,754 - root - INFO - Database tables initialized successfully!
+2025-04-05 14:19:39,770 - werkzeug - WARNING -  * Debugger is active!
+2025-04-05 14:19:39,774 - werkzeug - INFO -  * Debugger PIN: 851-415-096
+2025-04-05 14:19:40,779 - werkzeug - INFO -  * Detected change in '/Users/didi/Desktop/Python Projects/Python_taskManager/Backend/models.py', reloading
+2025-04-05 14:19:40,846 - werkzeug - INFO -  * Restarting with stat
+2025-04-05 14:19:41,047 - root - INFO - Database tables initialized successfully!
+2025-04-05 14:19:41,061 - werkzeug - WARNING -  * Debugger is active!
+2025-04-05 14:19:41,065 - werkzeug - INFO -  * Debugger PIN: 851-415-096
+2025-04-05 14:19:51,131 - werkzeug - INFO -  * Detected change in '/Users/didi/Desktop/Python Projects/Python_taskManager/Backend/models.py', reloading
+2025-04-05 14:19:51,202 - werkzeug - INFO -  * Restarting with stat
+2025-04-05 14:19:51,451 - root - INFO - Database tables initialized successfully!
+2025-04-05 14:19:51,466 - werkzeug - WARNING -  * Debugger is active!
+2025-04-05 14:19:51,470 - werkzeug - INFO -  * Debugger PIN: 851-415-096
+2025-04-05 14:19:55,497 - werkzeug - INFO -  * Detected change in '/Users/didi/Desktop/Python Projects/Python_taskManager/Backend/models.py', reloading
+2025-04-05 14:19:55,555 - werkzeug - INFO -  * Restarting with stat
+2025-04-05 14:20:31,689 - root - INFO - Database tables initialized successfully!
+2025-04-05 14:20:31,713 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2025-04-05 14:20:31,714 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-05 14:20:31,714 - werkzeug - INFO -  * Restarting with stat
+2025-04-05 14:20:31,899 - root - INFO - Database tables initialized successfully!
+2025-04-05 14:20:31,912 - werkzeug - WARNING -  * Debugger is active!
+2025-04-05 14:20:31,916 - werkzeug - INFO -  * Debugger PIN: 851-415-096
+2025-04-05 14:20:37,192 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:20:37] "[35m[1mGET /tasks/1 HTTP/1.1[0m" 500 -
+2025-04-05 14:20:37,205 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:20:37] "[36mGET /tasks/1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-04-05 14:20:37,207 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:20:37] "[36mGET /tasks/1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-04-05 14:20:37,210 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:20:37] "GET /tasks/1?__debugger__=yes&cmd=resource&f=console.png&s=UxxWA4PaSOEtHd0kWyiW HTTP/1.1" 200 -
+2025-04-05 14:20:53,084 - werkzeug - INFO -  * Detected change in '/Users/didi/Desktop/Python Projects/Python_taskManager/Backend/models.py', reloading
+2025-04-05 14:20:53,163 - werkzeug - INFO -  * Restarting with stat
+2025-04-05 14:20:53,381 - root - INFO - Database tables initialized successfully!
+2025-04-05 14:20:53,399 - werkzeug - WARNING -  * Debugger is active!
+2025-04-05 14:20:53,403 - werkzeug - INFO -  * Debugger PIN: 851-415-096
+2025-04-05 14:21:32,743 - werkzeug - INFO -  * Detected change in '/Users/didi/Desktop/Python Projects/Python_taskManager/Backend/models.py', reloading
+2025-04-05 14:21:32,817 - werkzeug - INFO -  * Restarting with stat
+2025-04-05 14:21:33,021 - root - INFO - Database tables initialized successfully!
+2025-04-05 14:21:33,038 - werkzeug - WARNING -  * Debugger is active!
+2025-04-05 14:21:33,042 - werkzeug - INFO -  * Debugger PIN: 851-415-096
+2025-04-05 14:21:37,062 - werkzeug - INFO -  * Detected change in '/Users/didi/Desktop/Python Projects/Python_taskManager/Backend/models.py', reloading
+2025-04-05 14:21:37,131 - werkzeug - INFO -  * Restarting with stat
+2025-04-05 14:21:37,333 - root - INFO - Database tables initialized successfully!
+2025-04-05 14:21:37,349 - werkzeug - WARNING -  * Debugger is active!
+2025-04-05 14:21:37,354 - werkzeug - INFO -  * Debugger PIN: 851-415-096
+2025-04-05 14:21:38,362 - werkzeug - INFO -  * Detected change in '/Users/didi/Desktop/Python Projects/Python_taskManager/Backend/models.py', reloading
+2025-04-05 14:21:38,431 - werkzeug - INFO -  * Restarting with stat
+2025-04-05 14:21:38,663 - root - INFO - Database tables initialized successfully!
+2025-04-05 14:21:38,682 - werkzeug - WARNING -  * Debugger is active!
+2025-04-05 14:21:38,687 - werkzeug - INFO -  * Debugger PIN: 851-415-096
+2025-04-05 14:21:39,701 - werkzeug - INFO -  * Detected change in '/Users/didi/Desktop/Python Projects/Python_taskManager/Backend/models.py', reloading
+2025-04-05 14:21:39,780 - werkzeug - INFO -  * Restarting with stat
+2025-04-05 14:21:39,982 - root - INFO - Database tables initialized successfully!
+2025-04-05 14:21:39,998 - werkzeug - WARNING -  * Debugger is active!
+2025-04-05 14:21:40,002 - werkzeug - INFO -  * Debugger PIN: 851-415-096
+2025-04-05 14:22:28,362 - werkzeug - INFO -  * Detected change in '/Users/didi/Desktop/Python Projects/Python_taskManager/Backend/models.py', reloading
+2025-04-05 14:22:28,431 - werkzeug - INFO -  * Restarting with stat
+2025-04-05 14:22:28,717 - root - INFO - Database tables initialized successfully!
+2025-04-05 14:22:28,736 - werkzeug - WARNING -  * Debugger is active!
+2025-04-05 14:22:28,740 - werkzeug - INFO -  * Debugger PIN: 851-415-096
+2025-04-05 14:22:30,758 - werkzeug - INFO -  * Detected change in '/Users/didi/Desktop/Python Projects/Python_taskManager/Backend/models.py', reloading
+2025-04-05 14:22:30,836 - werkzeug - INFO -  * Restarting with stat
+2025-04-05 14:22:31,043 - root - INFO - Database tables initialized successfully!
+2025-04-05 14:22:31,059 - werkzeug - WARNING -  * Debugger is active!
+2025-04-05 14:22:31,063 - werkzeug - INFO -  * Debugger PIN: 851-415-096
+2025-04-05 14:22:32,074 - werkzeug - INFO -  * Detected change in '/Users/didi/Desktop/Python Projects/Python_taskManager/Backend/models.py', reloading
+2025-04-05 14:22:32,139 - werkzeug - INFO -  * Restarting with stat
+2025-04-05 14:22:32,332 - root - INFO - Database tables initialized successfully!
+2025-04-05 14:22:32,346 - werkzeug - WARNING -  * Debugger is active!
+2025-04-05 14:22:32,350 - werkzeug - INFO -  * Debugger PIN: 851-415-096
+2025-04-05 14:22:49,640 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:22:49] "GET /tasks/1 HTTP/1.1" 200 -
+2025-04-05 14:22:53,344 - root - INFO - Task 1 for user 1 loaded from Redis cache.
+2025-04-05 14:22:53,345 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:22:53] "GET /tasks/1 HTTP/1.1" 200 -
+2025-04-05 14:23:02,062 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:23:02] "GET /tasks HTTP/1.1" 200 -
