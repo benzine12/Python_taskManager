@@ -1,0 +1,18 @@
+2025-04-05 08:35:46,365 - root - INFO - Database tables initialized successfully!
+2025-04-05 08:35:46,451 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2025-04-05 08:35:46,452 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-05 08:35:46,452 - werkzeug - INFO -  * Restarting with stat
+2025-04-05 08:35:46,653 - root - INFO - Database tables initialized successfully!
+2025-04-05 08:35:46,674 - werkzeug - WARNING -  * Debugger is active!
+2025-04-05 08:35:46,680 - werkzeug - INFO -  * Debugger PIN: 851-415-096
+2025-04-05 08:37:29,465 - werkzeug - INFO -  * Detected change in '/Users/didi/Desktop/Python Projects/Python_taskManager/Backend/tests/conftest.py', reloading
+2025-04-05 08:37:29,535 - werkzeug - INFO -  * Restarting with stat
+2025-04-05 08:37:29,878 - root - INFO - Database tables initialized successfully!
+2025-04-05 08:37:29,901 - werkzeug - WARNING -  * Debugger is active!
+2025-04-05 08:37:29,906 - werkzeug - INFO -  * Debugger PIN: 851-415-096
+2025-04-05 08:37:44,004 - werkzeug - INFO -  * Detected change in '/Users/didi/Desktop/Python Projects/Python_taskManager/Backend/tests/conftest.py', reloading
+2025-04-05 08:37:44,074 - werkzeug - INFO -  * Restarting with stat
+2025-04-05 08:37:44,352 - root - INFO - Database tables initialized successfully!
+2025-04-05 08:37:44,372 - werkzeug - WARNING -  * Debugger is active!
+2025-04-05 08:37:44,378 - werkzeug - INFO -  * Debugger PIN: 851-415-096

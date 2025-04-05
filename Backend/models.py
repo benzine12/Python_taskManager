@@ -19,7 +19,7 @@ class Task(DB.Model):
     user_id = DB.Column(DB.Integer, DB.ForeignKey('users.id'), nullable=False) # the user id who creates the task
     
     task_name = DB.Column(DB.String(60), nullable=False) # the name of the task
-    theme = DB.Column(DB.String(10), nullable=False) # the theme of the new task( work,home,school)
+    theme = DB.Column(DB.String(15), nullable=False) # the theme of the new task( work,home,school)
     status = DB.Column(DB.Boolean, default=True) # status of the task ( active or not)
     task_desc = DB.Column(DB.Text, nullable=False) # the task description
     start_date = DB.Column(DB.DateTime, nullable=False, default=lambda: datetime.now(timezone.utc)) # the date when user open the task

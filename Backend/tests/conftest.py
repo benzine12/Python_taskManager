@@ -1,13 +1,16 @@
 # conftest.py
 import pytest
 from app import app, DB
+import os
 
 @pytest.fixture
 def client():
     """Creates a test client for the Flask app."""
     app.config['TESTING'] = True  # Enables testing mode
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
-
+    
+    # Use PostgreSQL test database
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:12345678@localhost:5432/taskmanager_test'
+    
     with app.app_context():
         DB.create_all()  # Create tables before tests
 
@@ -15,7 +18,7 @@ def client():
         yield client  # Provides the test client for tests
     
     with app.app_context():
-        DB.drop_all()
+        DB.drop_all()  # Clean up after tests
 
 @pytest.fixture
 def test_user(client, username: str = "test_username",password: str = "test_password"):

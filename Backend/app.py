@@ -40,6 +40,11 @@ jwt = JWTManager(app)
 DB.init_app(app)
 bcrypt = Bcrypt(app)
 
+# Initialize database tables
+with app.app_context():
+    DB.create_all()
+    logger.info("Database tables initialized successfully!")
+
 @app.post('/tasks')
 @get_current_user
 def new_task(user):

@@ -1,18 +1,9 @@
 # to-do: 
-15. add  unitest testing for : 
-                # to-do :
-
-                # done :
-                register
-                login
-                
-18. implement the ipdaress checking to the database and the flask save the endpoint module( from there https://github.com/benzine12/flask_jwt_login_registration/blob/main/models.py)
 19. change the database to mySQL( use docker)
 20. create docker compose with : 
                             # Backend
                             # Frontend
                             # mySQL
-21. change auth decorators to middleware
 
 
 # done:

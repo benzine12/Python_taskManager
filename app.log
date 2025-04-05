@@ -1,0 +1,19 @@
+2025-04-05 08:38:00,917 - root - INFO - Database tables initialized successfully!
+2025-04-05 08:38:06,108 - root - ERROR - Database error: (psycopg2.errors.StringDataRightTruncation) value too long for type character varying(10)
+
+[SQL: UPDATE tasks SET task_name=%(task_name)s, theme=%(theme)s, task_desc=%(task_desc)s WHERE tasks.id = %(tasks_id)s]
+[parameters: {'task_name': 'updated_task', 'theme': 'updatex_theme', 'task_desc': 'updated_desc', 'tasks_id': 1}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+2025-04-05 08:45:24,003 - root - INFO - Database tables initialized successfully!
+2025-04-05 08:45:29,138 - root - ERROR - Database error: (psycopg2.errors.StringDataRightTruncation) value too long for type character varying(10)
+
+[SQL: UPDATE tasks SET task_name=%(task_name)s, theme=%(theme)s, task_desc=%(task_desc)s WHERE tasks.id = %(tasks_id)s]
+[parameters: {'task_name': 'updated_task', 'theme': 'updatex_theme', 'task_desc': 'updated_desc', 'tasks_id': 1}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+2025-04-05 08:59:02,725 - root - INFO - Database tables initialized successfully!
+2025-04-05 08:59:07,905 - root - ERROR - Database error: (psycopg2.errors.StringDataRightTruncation) value too long for type character varying(10)
+
+[SQL: UPDATE tasks SET task_name=%(task_name)s, theme=%(theme)s, task_desc=%(task_desc)s WHERE tasks.id = %(tasks_id)s]
+[parameters: {'task_name': 'updated_task', 'theme': 'updatex_theme', 'task_desc': 'updated_desc', 'tasks_id': 1}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+2025-04-05 09:01:09,845 - root - INFO - Database tables initialized successfully!

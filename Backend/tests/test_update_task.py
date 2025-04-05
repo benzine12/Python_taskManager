@@ -2,14 +2,14 @@
 def test_update_task(client,jwt_header,test_task):
     response = client.put('/tasks/1',headers=jwt_header,json={
         "task_name":"updated_task",
-        "theme":"updatex_theme",
+        "theme":"updated_theme",
         "task_desc":"updated_desc"
     })
 
     assert response.status_code == 200
     assert response.json["message"] == "Task updated successfully!"
     assert response.json["task"]["task_name"] == "updated_task"
-    assert response.json["task"]["theme"] == "updatex_theme"
+    assert response.json["task"]["theme"] == "updated_theme"
     assert response.json["task"]["task_desc"] == "updated_desc"
 
 # wrong user
