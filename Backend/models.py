@@ -1,18 +1,12 @@
 from db import DB
 from datetime import datetime, timezone
 
-class IPAddres(DB.Model):
-    id = DB.Column(DB.Integer, primary_key=True)
-    ip_address = DB.Column(DB.String(46), nullable=False, unique=True)
-    blacklist = DB.Column(DB.Boolean, default=False)
-    added_at = DB.Column(DB.DateTime, default=lambda: datetime.now(timezone.utc))
-
 class User(DB.Model):
     __tablename__ = 'users'
 
     id = DB.Column(DB.Integer, primary_key=True)
     username = DB.Column(DB.String(15), nullable=False, unique=True)
-    password = DB.Column(DB.String(15), nullable=False)
+    password = DB.Column(DB.String(255), nullable=False)
     added_at = DB.Column(DB.DateTime, default=lambda: datetime.now(timezone.utc))
 
     # Relationship with Task

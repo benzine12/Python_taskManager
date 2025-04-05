@@ -66,7 +66,12 @@ def new_task(user):
 
     # Save to database
     DB.session.add(add_task)
-    DB.session.commit()
+    try:
+        DB.session.commit()
+    except Exception as e:
+        DB.session.rollback()
+        logger.error(f"Database error: {str(e)}")
+        return jsonify({"error": "Database error occurred"}), 500
 
     return jsonify({"message": "Task added successfully", "task": add_task.to_dict()}), 201
 
@@ -111,7 +116,12 @@ def update_task(user, id):
         task.task_desc = data.get("task_desc", task.task_desc)
         task.status = status
         
-        DB.session.commit()
+        try:
+            DB.session.commit()
+        except Exception as e:
+            DB.session.rollback()
+            logger.error(f"Database error: {str(e)}")
+            return jsonify({"error": "Database error occurred"}), 500
         return jsonify({"message": "Task updated successfully!", "task": task.to_dict()}), 200
     return jsonify({"message": "Task not found!"}), 404
 
@@ -128,7 +138,12 @@ def close_task(user, id):
 
     task.status = False
     task.end_date = datetime.now(timezone.utc)
-    DB.session.commit()
+    try:
+        DB.session.commit()
+    except Exception as e:
+        DB.session.rollback()
+        logger.error(f"Database error: {str(e)}")
+        return jsonify({"error": "Database error occurred"}), 500
 
     return jsonify({'message': 'Task closed successfully!', 'task': task.to_dict()}), 200
 
@@ -145,13 +160,18 @@ def delete_task(user, id):
     task = Task.active().filter_by(id=id, user_id=user.id).first()
 
     if not task:
-        return jsonify({"message": "There is no such task!"}), 403
+        return jsonify({"message": "There is no such task!"}), 404
     if task.deleted:
         return jsonify({"message": "Task already deleted!"}), 400
 
     task.deleted = True
     task.deleted_at = datetime.now(timezone.utc)
-    DB.session.commit()
+    try:
+        DB.session.commit()
+    except Exception as e:
+        DB.session.rollback()
+        logger.error(f"Database error: {str(e)}")
+        return jsonify({"error": "Database error occurred"}), 500
 
     return jsonify({"message": "Task deleted successfully!", "task": task.to_dict()}), 200
 
@@ -193,7 +213,12 @@ def register():
         new_user = User(username=username, password=hashed_password)
 
         DB.session.add(new_user)
-        DB.session.commit()
+        try:
+            DB.session.commit()
+        except Exception as e:
+            DB.session.rollback()
+            logger.error(f"Database error: {str(e)}")
+            return jsonify({"error": "Database error occurred"}), 500
 
         return jsonify({"msg": "User registered successfully"}), 201
 
