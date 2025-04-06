@@ -198,3 +198,5 @@
 2025-04-05 14:22:53,344 - root - INFO - Task 1 for user 1 loaded from Redis cache.
 2025-04-05 14:22:53,345 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:22:53] "GET /tasks/1 HTTP/1.1" 200 -
 2025-04-05 14:23:02,062 - werkzeug - INFO - 127.0.0.1 - - [05/Apr/2025 14:23:02] "GET /tasks HTTP/1.1" 200 -
+2025-04-05 21:21:50,159 - root - INFO - Database tables initialized successfully!
+2025-04-05 21:22:05,141 - root - INFO - Database tables initialized successfully!
