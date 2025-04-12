@@ -5,7 +5,7 @@ from models import Task, User
 from db import DB
 import logging
 from flask_jwt_extended import JWTManager, create_access_token
-from env.config import Config
+from config import Config
 from flask_bcrypt import Bcrypt
 from modules import get_current_user
 import redis
@@ -51,7 +51,6 @@ with app.app_context():
 redis_client = redis.Redis(
     host=Config.REDIS_HOST,
     port=Config.REDIS_PORT,
-    db=Config.REDIS_DB,
     decode_responses=True  # decode to string
 )
 
@@ -300,4 +299,4 @@ def login():
 if __name__ == '__main__':
     with app.app_context():
         DB.create_all()
-    app.run(debug=True, port=5001)
+    app.run(debug=True, port=8000, host='0.0.0.0')
