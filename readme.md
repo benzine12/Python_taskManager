@@ -53,17 +53,17 @@ This project is a Task Management Application using Flask. It allows you to crea
     ```
 
 ## Installation with Docker compose
-    ```sh
+  ```sh
     docker compose up
-    ```
+  ```
 
 
 ## Usage
 
 1. Run the Flask server:
-    ```sh
+  ```sh
     python app.py
-    ```
+  ```
 
 2. The API will be available at `http://127.0.0.1:8000/`.
 
