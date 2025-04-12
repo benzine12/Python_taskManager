@@ -15,6 +15,7 @@ This project is a Task Management Application using Flask. It allows you to crea
 - Comprehensive logging system
 - PostgreSQL database integration
 - CORS support for frontend integration
+- Docker compose to fast deploy
 
 ## Requirements
 
@@ -51,6 +52,12 @@ This project is a Task Management Application using Flask. It allows you to crea
     pip install -r requirements.txt
     ```
 
+## Installation with Docker compose
+    ```sh
+    docker compose up
+    ```
+
+
 ## Usage
 
 1. Run the Flask server:
@@ -58,7 +65,7 @@ This project is a Task Management Application using Flask. It allows you to crea
     python app.py
     ```
 
-2. The API will be available at `http://127.0.0.1:5001/`.
+2. The API will be available at `http://127.0.0.1:8000/`.
 
 ## API Endpoints
 
